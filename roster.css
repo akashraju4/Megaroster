@@ -17,6 +17,19 @@ h1 span {
   text-transform: none;
   margin: 0 4px 0 -10px;
 }
+h2 {
+  font: 100 64px/64px 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2 span {
+  font: 400 60px/60px 'gentium book basic';
+  font-style: italic;
+  text-transform: none;
+  margin: 0 4px 0 -10px;
+}
+
 
 section {
   display: flex;
@@ -34,6 +47,7 @@ section > div {
   justify-content: center;
 }
 
+
 dl > li {
   list-style: none;
 }
@@ -49,7 +63,7 @@ dt {
   float: left;
   clear: left;
   width: 100px;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
   color: green;
 }
