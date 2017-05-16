@@ -1,10 +1,8 @@
 const App = {
   init() {
     const personForm = document.querySelector('form')
-    console.log(this)
-    console.log(this.handleSubmit)
     personForm.addEventListener('submit', (ev) => this.handleSubmit(ev))
- 
+
   },
 
 //   renderColor(hairColor) {
@@ -25,6 +23,16 @@ const App = {
       deleteButton.textContent = 'Delete'
       return deleteButton
   },
+  renderBreakLine() {
+    let breakLine = document.createElement("br")
+    return breakLine
+  },
+  renderPromoteButton() {
+      let promoteButton = document.createElement("button")
+      promoteButton.textContent = 'Promote'
+      return promoteButton
+
+},
 
   renderList(person) {
     let list = document.createElement('ul')
@@ -33,9 +41,13 @@ const App = {
         let value = input.value
         let li = this.renderListItem(value)
         let deleteButt = this.renderDeleteButton()
+        let promoteButt = this.renderPromoteButton()
+        let breakLine = this.renderBreakLine()
         list.appendChild(li)
         list.appendChild(deleteButt)
-        list.addEventListener('delete', (ev) => this.deleteSubmit(ev))
+        list.appendChild(breakLine)
+        list.appendChild(promoteButt)
+        // list.addEventListener('delete', (ev) => this.deleteSubmit(ev))
       }
      
     })
@@ -46,7 +58,7 @@ const App = {
   handleSubmit(ev) {
     ev.preventDefault()
     const form = ev.target
-    console.lorg(form)
+
     const details = document.querySelector('.details')
 
     const list = this.renderList(form.elements)
@@ -60,7 +72,7 @@ const App = {
     const details = document.querySelector('.details')
 
     const list = this.renderList(form.elements)
-    details.parentNode.removeChild(details)
+    list.remove()
   },
 }
 
