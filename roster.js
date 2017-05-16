@@ -1,17 +1,9 @@
 const App = {
   init() {
     const personForm = document.querySelector('form')
-    personForm.addEventListener('submit', (ev) => this.handleSubmit(ev))
+    personForm.addEventListener('submit', (ev) => this.handleSubmit(ev)) 
 
   },
-
-//   renderColor(hairColor) {
-//     const colorDiv = document.createElement('div')
-//     colorDiv.style.height = '50px'
-//     colorDiv.style.width = '100px'
-//     colorDiv.style.backgroundColor = hairColor
-//     return colorDiv
-//   },
 
   renderListItem(name) {
     const li = document.createElement('li')
@@ -32,8 +24,7 @@ const App = {
       promoteButton.textContent = 'Promote'
       return promoteButton
 
-},
-
+  },
   renderList(person) {
     let list = document.createElement('ul')
     Array.from(person).map((input, _i, _elementsArray) => {
@@ -47,7 +38,9 @@ const App = {
         list.appendChild(deleteButt)
         list.appendChild(breakLine)
         list.appendChild(promoteButt)
-        // list.addEventListener('delete', (ev) => this.deleteSubmit(ev))
+        deleteButt.addEventListener('click', (ev) => this.deleteSubmit(ev))
+        promoteButt.addEventListener('click', (ev) => this.promoteSubmit(ev))
+
       }
      
     })
@@ -64,15 +57,25 @@ const App = {
     const list = this.renderList(form.elements)
 
     details.insertBefore(list, details.firstChild)
+    
   },
   
   deleteSubmit(ev) {
-    ev.preventDefault()
-    const form = ev.target
-    const details = document.querySelector('.details')
+     //alert("Hello world!")
+     const form = ev.target
+     form.parentNode.innerHTML = ''
+    //  const details = document.querySelector('.details')
 
-    const list = this.renderList(form.elements)
-    list.remove()
+    //  const list = this.renderList(form.elements)
+
+    //  details.removeChild(list)
+    
+    
+  },
+  promoteSubmit(ev) {
+     const form = ev.target
+     form.parentNode.style.backgroundColor = "yellow"
+    
   },
 }
 
