@@ -21,7 +21,7 @@ const App = {
   },
 
   renderList(person) {
-    const list = document.createElement('ul')
+    list = document.createElement('ul')
     Array.from(person).map((input, _i, _elementsArray) => {
       if (input.value) {
         let value = input.value
@@ -29,7 +29,7 @@ const App = {
         //   value = this.renderColor(value).outerHTML
         // }
         let li = this.renderListItem(value)
-        list.appendChild(li)
+        list.append(li)
       }
     })
 
@@ -43,7 +43,7 @@ const App = {
 
     const list = this.renderList(form.elements)
 
-    details.appendChild(list)
+    details.insertBefore(list, details.firstChild)
   },
 }
 
