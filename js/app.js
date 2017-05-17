@@ -17,9 +17,9 @@ const megaroster = {
           id: this.max + 1,
           name: f.studentName.value,
       }
-      this.students.push(student)
+      this.students.unshift(student) //good thing to know, puts element above front
       const li = this.buildListItem(student)
-      this.studentList.appendChild(li)
+      this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
       this.max++
       f.reset()
     },
