@@ -6,6 +6,7 @@ const megaroster = {
     init(listSelector) {
       this.studentList = document.querySelector(listSelector) //same as studentList:
       this.max = 0
+      this.i = 2
       this.setupEventListeners()
     },
     
@@ -17,8 +18,19 @@ const megaroster = {
     removeStudent(ev) {
       const btn = ev.target
       btn.closest('.student').remove()
-      
-
+    },
+    promoteStudent(ev) {
+      const prm = ev.target
+      if(this.i % 2 === 0)
+      {
+        prm.closest('.student').style.backgroundColor = "yellow"  
+      }
+      else
+      {
+        prm.closest('.student').style.backgroundColor = ''  
+      }
+      this.i++
+      console.log(this.i)     
     },
     addStudent(ev) {
       ev.preventDefault()
@@ -43,12 +55,15 @@ const megaroster = {
       listItem
       .querySelector('.button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
+      listItem
+      .querySelector('.button.secondary')
+      .addEventListener('click', this.promoteStudent.bind(this))
       return listItem
     },
 
     removeClassName(el, className) {
       el.className = el.className.replace(className, '').trim()
-    }
+    },
 }
 
 megaroster.init('#studentList')
