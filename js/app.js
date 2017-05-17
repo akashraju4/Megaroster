@@ -25,11 +25,17 @@ const megaroster = {
     },
 
     buildListItem(student) {
-      const listItem = document.createElement('li')
-      listItem.textContent = student.name
+      const template = document.querySelector('.student.template')
+      const listItem = template.cloneNode(true)
+      this.removeClassName(listItem, 'template')
+      listItem.querySelector('.student-name').textContent = student.name
       listItem.dataset.id = student.id
       return listItem
     },
+
+    removeClassName(el, className) {
+      el.className = el.className.replace(className, '').trim()
+    }
 }
 
 megaroster.init('#studentList')
