@@ -18,6 +18,17 @@ const megaroster = {
     removeStudent(ev) {
       const btn = ev.target
       btn.closest('.student').remove()
+      let id = btn.closest('.student')
+      let data = id.dataset.id
+      for(let z = 0; z < this.students.length; z++)
+      {
+        if(data == z)
+        {
+          this.students.splice(data-1, 1)
+        }
+        
+      }
+      
     },
     promoteStudent(ev) {
       const prm = ev.target
@@ -29,8 +40,7 @@ const megaroster = {
       {
         prm.closest('.student').style.backgroundColor = ''  
       }
-      this.i++
-      console.log(this.i)     
+      this.i++     
     },
     addStudent(ev) {
       ev.preventDefault()
