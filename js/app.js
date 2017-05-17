@@ -22,9 +22,9 @@ const megaroster = {
       let data = id.dataset.id
       for(let z = 0; z < this.students.length; z++)
       {
-        if(data == z)
+        if(data == this.students[z].id)
         {
-          this.students.splice(data-1, 1)
+          this.students.splice(z, 1)
         }
         
       }
