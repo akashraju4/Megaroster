@@ -1,16 +1,29 @@
 $(document).foundation()
 
 const megaroster = {
-    init() {
+    students: [],
+    
+    init(listSelector) {
+      this.studentList = document.querySelector(listSelector) //same as studentList:
+      this.max = 0
       document
       .querySelector('form#new-student')
-      .addEventListener('submit', this.addStudent) //don't add parenthesis
+      .addEventListener('submit', this.addStudent.bind(this)) //bind makes it the same thing as it is at bind
     },
     addStudent(ev) {
       ev.preventDefault()
-      const studentName = ev.target.studentName.value
-      console.log(studentName)
-    }
+      const f = ev.target
+      const student = {
+          id: this.max + 1,
+          name: f.studentName.value,
+      }
+      this.buildListItem(student)
+      this.max++
+    },
+
+    buildListItem(student) {
+      console.log(student)
+    },
 }
 
-megaroster.init()
+megaroster.init('#studentList')
