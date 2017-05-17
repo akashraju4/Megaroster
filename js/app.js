@@ -6,9 +6,19 @@ const megaroster = {
     init(listSelector) {
       this.studentList = document.querySelector(listSelector) //same as studentList:
       this.max = 0
-      document
+      this.setupEventListeners()
+    },
+    
+    setupEventListeners() {
+       document
       .querySelector('form#new-student')
       .addEventListener('submit', this.addStudent.bind(this)) //bind makes it the same thing as it is at bind
+    },
+    removeStudent(ev) {
+      const btn = ev.target
+      btn.closest('.student').remove()
+      
+
     },
     addStudent(ev) {
       ev.preventDefault()
@@ -30,6 +40,9 @@ const megaroster = {
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
       listItem.dataset.id = student.id
+      listItem
+      .querySelector('.button.remove')
+      .addEventListener('click', this.removeStudent.bind(this))
       return listItem
     },
 

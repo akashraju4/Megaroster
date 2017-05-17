@@ -1,3 +1,17 @@
 .template {
     visibility: hidden; /*class template in html, makes initial delete hidden*/
 }
+
+.student {
+    border: 1px solid #ddd;
+    height: 4rem;
+}
+
+span.student-name {
+    line-height: 2.5rem;
+    padding: 1px;
+}
+
+.actions {
+    float: right;
+}
