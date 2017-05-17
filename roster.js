@@ -2,9 +2,7 @@ const App = {
   init() {
     const personForm = document.querySelector('form')
     personForm.addEventListener('submit', (ev) => this.handleSubmit(ev)) 
-
   },
-
   renderListItem(name) {
     const li = document.createElement('li')
     li.innerHTML = `${name}`
@@ -23,7 +21,6 @@ const App = {
       let promoteButton = document.createElement("button")
       promoteButton.textContent = 'Promote'
       return promoteButton
-
   },
   renderList(person) {
     let list = document.createElement('ul')
@@ -40,37 +37,21 @@ const App = {
         list.appendChild(promoteButt)
         deleteButt.addEventListener('click', (ev) => this.deleteSubmit(ev))
         promoteButt.addEventListener('click', (ev) => this.promoteSubmit(ev))
-
-      }
-     
+      } 
     })
-
     return list
   },
-
   handleSubmit(ev) {
     ev.preventDefault()
     const form = ev.target
-
     const details = document.querySelector('.details')
-
     const list = this.renderList(form.elements)
-
     details.insertBefore(list, details.firstChild)
     
   },
-  
   deleteSubmit(ev) {
-     //alert("Hello world!")
      const form = ev.target
-     form.parentNode.innerHTML = ''
-    //  const details = document.querySelector('.details')
-
-    //  const list = this.renderList(form.elements)
-
-    //  details.removeChild(list)
-    
-    
+     form.parentNode.innerHTML = ''   
   },
   promoteSubmit(ev) {
      const form = ev.target
@@ -78,5 +59,4 @@ const App = {
     
   },
 }
-
 App.init()
