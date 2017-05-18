@@ -1,6 +1,18 @@
-
 .template {
     visibility: hidden; /*class template in html, makes initial delete hidden*/
+}
+h2 {
+  font: 800 64px/64px 'Copperplate', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333;
+}
+
+h2 span {
+  font: 400 60px/60px;
+  font-style: italic;
+  text-transform: none;
+  margin: 0 4px 0 -10px;
 }
 
 .student {
@@ -14,6 +26,7 @@
 span.student-name {
     line-height: 2.5rem;
     padding: 1px;
+    white-space: nowrap;
 }
 
 .actions {
