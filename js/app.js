@@ -52,6 +52,7 @@ const megaroster = {
       const downdown = ev.target
       let downid = downdown.closest('.student').dataset.id
       this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
+      //hi
       
     },
     addStudent(ev) {
