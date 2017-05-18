@@ -40,17 +40,30 @@ span.student-name {
     margin-bottom: 0;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+.button {
+
+    height: 3rem;
+    border: none;
+
+>>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
 .button.secondary.1 {
     height: 2rem;
 }
 .button.secondary.2 {
     height: 3rem;
+<<<<<<< HEAD
 =======
 .button {
 
     height: 3rem;
     border: none;
 >>>>>>> class
+=======
+
+>>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
 }
 .button.up {
     border: 1px solid red

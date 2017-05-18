@@ -104,6 +104,7 @@ class Megaroster {
       .addEventListener('click', this.promoteStudent.bind(this))
       listItem
 <<<<<<< HEAD
+<<<<<<< HEAD
       .querySelector('button.secondary1')
       .addEventListener('click', this.upStudent.bind(this))
       listItem
@@ -112,6 +113,9 @@ class Megaroster {
       return listItem
     },
 =======
+=======
+
+>>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
       .querySelector('.button.up.secondary')
       .addEventListener('click', this.upStudent.bind(this, student))
       listItem
@@ -119,7 +123,11 @@ class Megaroster {
       .addEventListener('click', this.downStudent.bind(this, student))
 
     }
+<<<<<<< HEAD
 >>>>>>> class
+=======
+
+>>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
 
     removeClassName(el, className) {
       el.className = el.className.replace(className, '').trim()
