@@ -31,44 +31,22 @@ span.student-name {
     white-space: nowrap;
     text-transform: none;
     margin: 0 4px 0 -10px;
-    font: 25px 'Copperplate', sans-serif;
+    font: 35px 'Copperplate', sans-serif;
+    display: inline-block;
     
 }
-
 .actions {
     float: right;
     margin-bottom: 0;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
 .button {
 
     height: 3rem;
     border: none;
-
->>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
-.button.secondary.1 {
-    height: 2rem;
-}
-.button.secondary.2 {
-    height: 3rem;
-<<<<<<< HEAD
-=======
-.button {
-
-    height: 3rem;
-    border: none;
->>>>>>> class
-=======
-
->>>>>>> 5b7e097abeaac0451e98f3a438f660c35d517f16
 }
 .button.up {
     border: 1px solid red
 }
 .button.down {
     border: 1px solid blue
-
 }
