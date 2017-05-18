@@ -56,25 +56,35 @@ class Megaroster {
     }
     upStudent(student, ev) {
       const upup = ev.target
-      const upid = upup.closest('.student')
-      this.studentList.insertBefore(upid, upid.previousElementSibling)    
+      const upid = upup.closest('.student')    
       const index = this.students.findIndex((currentStudent, i) => {
-        return currentStudent.id === student.id
-      })
-      if (index > 0) {
-        this.studentList.insertBefore(upid, upid.previousElementSibling)    
-        // const previousStudent = this.students[index - 1]
-        // this.students[index - 1] = student
-        // this.students[index] = previousStudent
+         return currentStudent.id === student.id
+       })
+       if (index > 0) {
+         this.studentList.insertBefore(upid, upid.previousElementSibling)    
+         const previousStudent = this.students[index - 1]
+         this.students[index - 1] = student
+         this.students[index] = previousStudent
 
-        // this.save()
+         this.save()
       
       }
     }
     downStudent(student, ev) {
       const downdown = ev.target
       const downid = downdown.closest('.student')
-      this.studentList.insertBefore(downid.nextElementSibling, downid)     
+      const index = this.students.findIndex((currentStudent, i) => {
+        return currentStudent.id === student.id
+       })
+       if (index < (this.students.length-1)) {
+         this.studentList.insertBefore(downid.nextElementSibling, downid)
+         const nextStudent = this.students[index + 1]
+         this.students[index + 1] = student
+         this.students[index] = nextStudent
+
+         this.save()
+      
+      }    
     }
     addStudentViaForm(ev) {
       ev.preventDefault()
