@@ -53,17 +53,15 @@ class Megaroster {
       this.i++   
       this.save()  
     }
-    upStudent(ev) {
+    upStudent(student, ev) {
       const upup = ev.target
-      //let upid = upup.closest('.student').dataset.id
-      //this.studentList.insertBefore(upup.closest('.student'), this.studentList[upid + 1])
-      
+      const upid = upup.closest('.student')
+      this.studentList.insertBefore(upid, upid.previousElementSibling)      
     }
     downStudent(ev) {
       const downdown = ev.target
       //let downid = downdown.closest('.student').dataset.id
-      //this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
-      
+      //this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2]) 
       
     }
     addStudentViaForm(ev) {
@@ -94,7 +92,11 @@ class Megaroster {
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
       listItem.dataset.id = student.id
-      listItem
+      this.setupActions(listItem, student)
+      return listItem
+    }
+    setupActions(listItem, student){
+       listItem
       .querySelector('.button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
       listItem
@@ -102,11 +104,11 @@ class Megaroster {
       .addEventListener('click', this.promoteStudent.bind(this))
       listItem
       .querySelector('.button.up.secondary')
-      .addEventListener('click', this.upStudent.bind(this))
+      .addEventListener('click', this.upStudent.bind(this, student))
       listItem
       .querySelector('.button.down.secondary')
-      .addEventListener('click', this.downStudent.bind(this))
-      return listItem
+      .addEventListener('click', this.downStudent.bind(this, student))
+
     }
 
     removeClassName(el, className) {
