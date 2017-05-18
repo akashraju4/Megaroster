@@ -61,7 +61,7 @@ class Megaroster {
     downStudent(student, ev) {
       const downdown = ev.target
       const downid = downdown.closest('.student')
-      this.studentList.appendChild(downid, downid.nextElementSibling)     
+      this.studentList.insertBefore(downid.nextElementSibling, downid)     
     }
     addStudentViaForm(ev) {
       ev.preventDefault()
