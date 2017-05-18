@@ -22,7 +22,7 @@ const megaroster = {
     load() {
       const rosterString = localStorage.getItem('roster')
       const rosterArray = JSON.parse(rosterString)
-      rosterArray.map(this.addStudent.bind(this)) //arrow functions automatically bind
+      rosterArray.reverse().map(this.addStudent.bind(this)) //arrow functions automatically bind
     },
     removeStudent(ev) {
       const btn = ev.target
