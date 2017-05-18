@@ -77,16 +77,20 @@ const megaroster = {
       this.addStudent(student)
       f.reset()  
     },
-    addStudent(student) {
-    
-      this.students.unshift(student) //good thing to know, puts element above front
-      
+    addStudent(student, append) {
       const li = this.buildListItem(student)
-      this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
-      if (student.id > this.max) {
-        this.max = student.id
+      if (append) {
+        this.students.push(Student)
+        this.studentList.appendChild(listItem)
+      }
+      else{
+        this.students.unshift(student) //good thing to know, puts element above front
+        this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
       }
       
+      if (student.id > this.max) {
+        this.max = student.id
+      }  
       //new code
       this.save()
     },
