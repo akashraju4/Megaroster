@@ -15,19 +15,24 @@ const megaroster = {
       .querySelector('form#new-student')
       .addEventListener('submit', this.addStudent.bind(this)) //bind makes it the same thing as it is at bind
     },
+    save() {
+      localStorage.setItem('roster', JSON.stringify(this.students))
+    },
     removeStudent(ev) {
       const btn = ev.target
       btn.closest('.student').remove()
       let id = btn.closest('.student')
-      let data = id.dataset.id
+      let data = parseFloat(id.dataset.id) //to use triple equals and change string to number
       for(let z = 0; z < this.students.length; z++)
       {
-        if(data == this.students[z].id)
+        if(data === this.students[z].id) //dataset.id always string
         {
           this.students.splice(z, 1)
+          break //break out of loop if it is a match
         }
         
       }
+      this.save()
       
     },
     promoteStudent(ev) {
@@ -63,10 +68,13 @@ const megaroster = {
           name: f.studentName.value,
       }
       this.students.unshift(student) //good thing to know, puts element above front
+      
       const li = this.buildListItem(student)
       this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
       this.max++
       f.reset()
+      //new code
+      this.save()
     },
 
     buildListItem(student) {
