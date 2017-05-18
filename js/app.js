@@ -51,7 +51,9 @@ const megaroster = {
       {
         prm.closest('.student').style.backgroundColor = ''  
       }
-      this.i++     
+      this.i++   
+      prm.closest('.student').classList.add('promoted')
+      this.save()  
     },
     upStudent(ev) {
       const upup = ev.target
