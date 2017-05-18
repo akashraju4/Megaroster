@@ -50,13 +50,20 @@ span.student-name {
     border: none;
 }
 .button.up {
-    border: 1px solid red
+    border: 1px solid red;
+    background-color: lightblue;
 }
 .button.down {
-    border: 1px solid blue
+    border: 1px solid blue;
+    background-color: orange;
 }
-/*.student:first-child button.move-up {
-  background-color: #ddd;
-  color: #eee;
+.student:first-child button.up {
+  background-color: black;
+  color: red;
   cursor: not-allowed;
-}*/
+}
+.student:nth-last-child(2) button.down {
+  background-color: black;
+  color:red;
+  cursor: not-allowed;
+}

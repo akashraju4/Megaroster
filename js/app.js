@@ -113,6 +113,7 @@ class Megaroster {
       const listItem = template.cloneNode(true)
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
+      student.name.contentEditable  
       listItem.dataset.id = student.id
       if(student.promoted) {
         listItem.classList.add('promoted')
