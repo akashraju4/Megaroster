@@ -20,8 +20,10 @@ class Megaroster {
     }
     load() {
       const rosterString = localStorage.getItem('roster')
+      if (rosterString) { 
       const rosterArray = JSON.parse(rosterString)
       rosterArray.reverse().map(this.addStudent.bind(this)) //arrow functions automatically bind
+      }
     }
     removeStudent(ev) {
       const btn = ev.target
@@ -40,23 +42,34 @@ class Megaroster {
       this.save()
       
     }
-    promoteStudent(ev) {
+    promoteStudent(student, ev) {
       const prm = ev.target
-      if(this.i % 2 === 0)
-      {
-        prm.closest('.student').style.backgroundColor = "yellow"  
-      }
-      else
-      {
-        prm.closest('.student').style.backgroundColor = ''  
-      }
-      this.i++   
+      const li = prm.closest('.student')
+      student.promoted = !student.promoted
+
+      if (student.promoted) {
+        li.classList.add('promoted')
+      } else {
+        li.classList.remove('promoted')
+      }   
       this.save()  
     }
     upStudent(student, ev) {
       const upup = ev.target
       const upid = upup.closest('.student')
       this.studentList.insertBefore(upid, upid.previousElementSibling)    
+      const index = this.students.findIndex((currentStudent, i) => {
+        return currentStudent.id === student.id
+      })
+      if (index > 0) {
+        this.studentList.insertBefore(upid, upid.previousElementSibling)    
+        // const previousStudent = this.students[index - 1]
+        // this.students[index - 1] = student
+        // this.students[index] = previousStudent
+
+        // this.save()
+      
+      }
     }
     downStudent(student, ev) {
       const downdown = ev.target
@@ -91,6 +104,9 @@ class Megaroster {
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
       listItem.dataset.id = student.id
+      if(student.promoted) {
+        listItem.classList.add('promoted')
+      }
       this.setupActions(listItem, student)
       return listItem
     }
@@ -100,7 +116,7 @@ class Megaroster {
       .addEventListener('click', this.removeStudent.bind(this))
       listItem
       .querySelector('.button.promote.success')
-      .addEventListener('click', this.promoteStudent.bind(this))
+      .addEventListener('click', this.promoteStudent.bind(this, student))
       listItem
       .querySelector('.button.up.secondary')
       .addEventListener('click', this.upStudent.bind(this, student))
@@ -114,4 +130,4 @@ class Megaroster {
     }
 }
 
-new Megaroster('#studentList')
+const roster = new Megaroster('#studentList')

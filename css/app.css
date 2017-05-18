@@ -39,6 +39,11 @@ span.student-name {
     float: right;
     margin-bottom: 0;
 }
+
+.promoted {
+    background-color: yellow;
+    border-color: #FFC656;
+}
 .button {
 
     height: 3rem;
@@ -50,3 +55,8 @@ span.student-name {
 .button.down {
     border: 1px solid blue
 }
+/*.student:first-child button.move-up {
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
+}*/
