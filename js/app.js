@@ -83,8 +83,7 @@ class Megaroster {
          this.students[index] = nextStudent
 
          this.save()
-      
-      }    
+      }   
     }
     addStudentViaForm(ev) {
       ev.preventDefault()
@@ -100,7 +99,6 @@ class Megaroster {
       this.students.unshift(student) //good thing to know, puts element above front
       const li = this.buildListItem(student)
       this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
-
       if (student.id > this.max) {
         this.max = student.id
       }  
@@ -113,7 +111,7 @@ class Megaroster {
       const listItem = template.cloneNode(true)
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
-      student.name.contentEditable  
+      document.getElementById("nombre").contentEditable = true;
       listItem.dataset.id = student.id
       if(student.promoted) {
         listItem.classList.add('promoted')
@@ -134,7 +132,6 @@ class Megaroster {
       listItem
       .querySelector('.button.down.secondary')
       .addEventListener('click', this.downStudent.bind(this, student))
-      return listItem
     }
     removeClassName(el, className) {
       el.className = el.className.replace(className, '').trim()
