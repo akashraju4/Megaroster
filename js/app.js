@@ -56,7 +56,7 @@ class Megaroster {
     upStudent(student, ev) {
       const upup = ev.target
       const upid = upup.closest('.student')
-      this.studentList.insertBefore(upid, upid.previousElementSibling)      
+      this.studentList.insertBefore(upid, upid.previousElementSibling)    //hi   
     }
     downStudent(ev) {
       const downdown = ev.target
