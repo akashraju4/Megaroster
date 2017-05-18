@@ -40,7 +40,6 @@ class Megaroster {
         
       }
       this.save()
-      
     }
     promoteStudent(student, ev) {
       const prm = ev.target
@@ -85,6 +84,11 @@ class Megaroster {
          this.save()
       }   
     }
+    saveStudent(student, ev)
+    {
+      const edited = document.getElementById("nombre")
+      this.save()
+    }
     addStudentViaForm(ev) {
       ev.preventDefault()
       const f = ev.target
@@ -112,7 +116,6 @@ class Megaroster {
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
       document.getElementById("nombre").contentEditable = true;
-      listItem.dataset.id = student.id
       if(student.promoted) {
         listItem.classList.add('promoted')
       }
@@ -132,6 +135,9 @@ class Megaroster {
       listItem
       .querySelector('.button.down.secondary')
       .addEventListener('click', this.downStudent.bind(this, student))
+       listItem
+      .querySelector('.button.save.secondary')
+      .addEventListener('click', this.saveStudent.bind(this, student))
     }
     removeClassName(el, className) {
       el.className = el.className.replace(className, '').trim()
