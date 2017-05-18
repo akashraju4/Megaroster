@@ -6,22 +6,25 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="C:\Users\Akash\xtern\Megaroster\font-awesome-4.7.0\css\font-awesome.css">
         <link rel="stylesheet" href="css/app.css">   
     </head>
     <body>
         <div class="row">
             <div class="medium-offset-2 medium-8 columns">
-                <h2>Megaroster</h2>
+                <h2 class="header">Megaroster</h2>
                 <form id="new-student">
-                    <div class="small-9 columns">
-                        <input
-                          type="text"
-                          name="studentName"
-                          placeHolder="Enter student name"
-                          autofocus
-                          required
-                        >
-                    </div>
+                    <div class="input-group"></div>
+                        <div class="small-9 columns">
+                            <input
+                            class="input-group-field"
+                            type="text"
+                            name="studentName"
+                            placeHolder="Enter student name"
+                            autofocus
+                            required
+                            >
+                        </div class="input-group-button">
                     <div class="small-3 columns">
                         <button type="submit" class="button expanded">Add Student</button>
                     </div>
@@ -30,17 +33,23 @@
 
             <div class="row">
                 <div class="medium-offset-2 medium-8 columns">
-                    <ul id="studentList">
-                        <li class="student template">
+                    <ul class="no-bullet" id="studentList">
+                        <li class="student template clearfix">
                             <span class="student-name"></span>
                             <span class="actions expanded button-group">
                                 <ul>
-                                  <button type="button" class="remove button alert">Remove</button>
-                                  <button type="button" class="success button">Promote</button>
-                                </ul>
-                                <ul>
-                                  <button type="button" class="secondary1 button">Move Up</button>
-                                  <button type="button" class="secondary2 button">Move Down</button>
+                                  <button type="button" class="remove button alert">
+                                      <i class="fa fa-trash-o"></i>
+                                  </button>
+                                  <button type="button" class="promote success button">
+                                      <i class="fa fa-star-o"></i>
+                                  </button>
+                                  <button type="button" class="up secondary button">
+                                      <i class="fa fa-hand-o-up"></i>
+                                  </button>
+                                  <button type="button" class="down secondary button">
+                                      <i class="fa fa-hand-o-down"></i>
+                                  </button>
                                 </ul>
                             </span>
                         </li>
