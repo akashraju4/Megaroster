@@ -42,6 +42,18 @@ const megaroster = {
       }
       this.i++     
     },
+    upStudent(ev) {
+      const upup = ev.target
+      //let upid = upup.closest('.student').dataset.id
+      //this.studentList.insertBefore(upup.closest('.student'), this.studentList[upid + 1])
+      
+    },
+    downStudent(ev) {
+      const downdown = ev.target
+      let downid = downdown.closest('.student').dataset.id
+      this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
+      
+    },
     addStudent(ev) {
       ev.preventDefault()
       const f = ev.target
@@ -66,8 +78,14 @@ const megaroster = {
       .querySelector('.button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
       listItem
-      .querySelector('.button.secondary')
+      .querySelector('.button.success')
       .addEventListener('click', this.promoteStudent.bind(this))
+      listItem
+      .querySelector('.button.secondary1')
+      .addEventListener('click', this.upStudent.bind(this))
+      listItem
+      .querySelector('.button.secondary2')
+      .addEventListener('click', this.downStudent.bind(this))
       return listItem
     },
 
