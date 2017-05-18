@@ -61,12 +61,11 @@ const megaroster = {
     },
     downStudent(ev) {
       const downdown = ev.target
-      let downid = downdown.closest('.student').dataset.id
-      this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
+      //let downid = downdown.closest('.student').dataset.id
+      //this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
       
       
     },
-
     addStudentViaForm(ev) {
       ev.preventDefault()
       const f = ev.target
@@ -78,16 +77,10 @@ const megaroster = {
       f.reset()  
     },
     addStudent(student, append) {
+      this.students.unshift(student) //good thing to know, puts element above front
       const li = this.buildListItem(student)
-      if (append) {
-        this.students.push(Student)
-        this.studentList.appendChild(listItem)
-      }
-      else{
-        this.students.unshift(student) //good thing to know, puts element above front
-        this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
-      }
-      
+      this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
+
       if (student.id > this.max) {
         this.max = student.id
       }  
