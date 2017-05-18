@@ -81,10 +81,10 @@ const megaroster = {
       .querySelector('.button.success')
       .addEventListener('click', this.promoteStudent.bind(this))
       listItem
-      .querySelector('.button.secondary1')
+      .querySelector('button.secondary1')
       .addEventListener('click', this.upStudent.bind(this))
       listItem
-      .querySelector('.button.secondary2')
+      .querySelector('button.secondary2')
       .addEventListener('click', this.downStudent.bind(this))
       return listItem
     },

@@ -15,6 +15,9 @@ span.student-name {
 .actions {
     float: right;
 }
-.button {
-    height: 1rem;
+.button.secondary.1 {
+    height: 2rem;
+}
+.button.secondary.2 {
+    height: 3rem;
 }
