@@ -39,10 +39,18 @@ span.student-name {
     float: right;
     margin-bottom: 0;
 }
+
 .button {
 
     height: 3rem;
     border: none;
+
+.button.secondary.1 {
+    height: 2rem;
+}
+.button.secondary.2 {
+    height: 3rem;
+
 }
 .button.up {
     border: 1px solid red
