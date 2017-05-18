@@ -8,15 +8,21 @@ const megaroster = {
       this.max = 0
       this.i = 2
       this.setupEventListeners()
+      this.load()
     },
     
     setupEventListeners() {
        document
       .querySelector('form#new-student')
-      .addEventListener('submit', this.addStudent.bind(this)) //bind makes it the same thing as it is at bind
+      .addEventListener('submit', this.addStudentViaForm.bind(this)) //bind makes it the same thing as it is at bind
     },
     save() {
       localStorage.setItem('roster', JSON.stringify(this.students))
+    },
+    load() {
+      const rosterString = localStorage.getItem('roster')
+      const rosterArray = JSON.parse(rosterString)
+      rosterArray.map(this.addStudent.bind(this)) //arrow functions automatically bind
     },
     removeStudent(ev) {
       const btn = ev.target
@@ -60,19 +66,27 @@ const megaroster = {
       
       
     },
-    addStudent(ev) {
+
+    addStudentViaForm(ev) {
       ev.preventDefault()
       const f = ev.target
       const student = {
-          id: this.max + 1,
-          name: f.studentName.value,
+        id: this.max + 1,
+        name: f.studentName.value,
       }
+      this.addStudent(student)
+      f.reset()  
+    },
+    addStudent(student) {
+    
       this.students.unshift(student) //good thing to know, puts element above front
       
       const li = this.buildListItem(student)
       this.studentList.insertBefore(li, this.studentList.firstChild) //two arguements: parent, child
-      this.max++
-      f.reset()
+      if (student.id > this.max) {
+        this.max = student.id
+      }
+      
       //new code
       this.save()
     },
