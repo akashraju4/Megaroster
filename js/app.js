@@ -1,29 +1,28 @@
 $(document).foundation()
 
-const megaroster = {
-    students: [],
-    
-    init(listSelector) {
+class Megaroster {
+  constructor(listSelector) {
+      this.students= []
       this.studentList = document.querySelector(listSelector) //same as studentList:
       this.max = 0
       this.i = 2
       this.setupEventListeners()
       this.load()
-    },
+    }
     
     setupEventListeners() {
        document
       .querySelector('form#new-student')
       .addEventListener('submit', this.addStudentViaForm.bind(this)) //bind makes it the same thing as it is at bind
-    },
+    }
     save() {
       localStorage.setItem('roster', JSON.stringify(this.students))
-    },
+    }
     load() {
       const rosterString = localStorage.getItem('roster')
       const rosterArray = JSON.parse(rosterString)
       rosterArray.reverse().map(this.addStudent.bind(this)) //arrow functions automatically bind
-    },
+    }
     removeStudent(ev) {
       const btn = ev.target
       btn.closest('.student').remove()
@@ -40,7 +39,7 @@ const megaroster = {
       }
       this.save()
       
-    },
+    }
     promoteStudent(ev) {
       const prm = ev.target
       if(this.i % 2 === 0)
@@ -52,22 +51,21 @@ const megaroster = {
         prm.closest('.student').style.backgroundColor = ''  
       }
       this.i++   
-      prm.closest('.student').classList.add('promoted')
       this.save()  
-    },
+    }
     upStudent(ev) {
       const upup = ev.target
       //let upid = upup.closest('.student').dataset.id
       //this.studentList.insertBefore(upup.closest('.student'), this.studentList[upid + 1])
       
-    },
+    }
     downStudent(ev) {
       const downdown = ev.target
       //let downid = downdown.closest('.student').dataset.id
       //this.studentList.insertBefore(downdown.closest('.student'), this.studentList[downid + 2])
       
       
-    },
+    }
     addStudentViaForm(ev) {
       ev.preventDefault()
       const f = ev.target
@@ -77,7 +75,7 @@ const megaroster = {
       }
       this.addStudent(student)
       f.reset()  
-    },
+    }
     addStudent(student, append) {
       this.students.unshift(student) //good thing to know, puts element above front
       const li = this.buildListItem(student)
@@ -88,7 +86,7 @@ const megaroster = {
       }  
       //new code
       this.save()
-    },
+    }
 
     buildListItem(student) {
       const template = document.querySelector('.student.template')
@@ -109,11 +107,11 @@ const megaroster = {
       .querySelector('.button.down.secondary')
       .addEventListener('click', this.downStudent.bind(this))
       return listItem
-    },
+    }
 
     removeClassName(el, className) {
       el.className = el.className.replace(className, '').trim()
-    },
+    }
 }
 
-megaroster.init('#studentList')
+new Megaroster('#studentList')
