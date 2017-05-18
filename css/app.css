@@ -1,10 +1,14 @@
+
 .template {
     visibility: hidden; /*class template in html, makes initial delete hidden*/
 }
 
 .student {
     border: 1px solid #ddd;
-    height: 6rem;
+    padding: 0.75rem 1.25rem;
+}
+.student + .student {
+    border-top: none;
 }
 
 span.student-name {
@@ -14,7 +18,16 @@ span.student-name {
 
 .actions {
     float: right;
+    margin-bottom: 0;
 }
 .button {
-    height: 1rem;
+
+    height: 3rem;
+}
+.button.up {
+    border: 0.5px solid red
+}
+.button.down {
+    border: 0.5px solid blue
+
 }

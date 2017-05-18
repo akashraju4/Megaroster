@@ -13,15 +13,17 @@
             <div class="medium-offset-2 medium-8 columns">
                 <h2>Megaroster</h2>
                 <form id="new-student">
-                    <div class="small-9 columns">
-                        <input
-                          type="text"
-                          name="studentName"
-                          placeHolder="Enter student name"
-                          autofocus
-                          required
-                        >
-                    </div>
+                    <div class="input-group"></div>
+                        <div class="small-9 columns">
+                            <input
+                            class="input-group-field"
+                            type="text"
+                            name="studentName"
+                            placeHolder="Enter student name"
+                            autofocus
+                            required
+                            >
+                        </div class="input-group-button">
                     <div class="small-3 columns">
                         <button type="submit" class="button expanded">Add Student</button>
                     </div>
@@ -30,17 +32,15 @@
 
             <div class="row">
                 <div class="medium-offset-2 medium-8 columns">
-                    <ul id="studentList">
-                        <li class="student template">
+                    <ul class="no-bullet" id="studentList">
+                        <li class="student template clearfix">
                             <span class="student-name"></span>
                             <span class="actions expanded button-group">
                                 <ul>
                                   <button type="button" class="remove button alert">Remove</button>
-                                  <button type="button" class="success button">Promote</button>
-                                </ul>
-                                <ul>
-                                  <button type="button" class="secondary1 button">Move Up</button>
-                                  <button type="button" class="secondary2 button">Move Down</button>
+                                  <button type="button" class="promote success button">Promote</button>
+                                  <button type="button" class="up secondary button">Move Up</button>
+                                  <button type="button" class="down secondary button">Move Down</button>
                                 </ul>
                             </span>
                         </li>
