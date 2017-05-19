@@ -86,8 +86,14 @@ class Megaroster {
     }
     saveStudent(student, ev)
     {
-      const edited = document.getElementById("nombre")
-      this.save()
+      const saveName = ev.target
+      const li = saveName.closest('.student')
+      const index = this.students.findIndex((currentStudent, i) => {
+        return currentStudent.id === student.id
+      })
+     this.students[index].name = li.querySelector('.toEdit').textContent
+     this.save()
+     
     }
     addStudentViaForm(ev) {
       ev.preventDefault()
