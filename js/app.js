@@ -5,7 +5,6 @@ class Megaroster {
       this.students= []
       this.studentList = document.querySelector(listSelector) //same as studentList:
       this.max = 0
-      this.i = 2
       this.setupEventListeners()
       this.load()
     }
@@ -26,19 +25,20 @@ class Megaroster {
       }
     }
     removeStudent(ev) {
+      
       const btn = ev.target
-      btn.closest('.student').remove()
-      let id = btn.closest('.student')
-      let data = parseFloat(id.dataset.id) //to use triple equals and change string to number
+      const id = btn.closest('.student')
+      const data = id.dataset.id
       for(let z = 0; z < this.students.length; z++)
       {
-        if(data === this.students[z].id) //dataset.id always string
+        if(data === this.students[z].id.toString())//dataset.id always string
         {
           this.students.splice(z, 1)
           break //break out of loop if it is a match
         }
         
       }
+      id.remove()
       this.save()
     }
     promoteStudent(student, ev) {
@@ -115,6 +115,7 @@ class Megaroster {
       const listItem = template.cloneNode(true)
       this.removeClassName(listItem, 'template')
       listItem.querySelector('.student-name').textContent = student.name
+      listItem.dataset.id = student.id
       document.getElementById("nombre").contentEditable = true;
       if(student.promoted) {
         listItem.classList.add('promoted')

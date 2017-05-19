@@ -29,11 +29,12 @@ span.student-name {
     line-height: 2.5rem;
     padding: 1px;
     white-space: nowrap;
-    text-transform: none;
+    text-transform: capitalize;
     margin: 0 4px 0 -10px;
     font: 35px 'Copperplate', sans-serif;
-    display: inline-block;
-    
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 195px)
 }
 .actions {
     float: right;
