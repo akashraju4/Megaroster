@@ -49,13 +49,12 @@ span.student-name {
 
     height: 3rem;
     border: none;
+    border: 1px solid black;
 }
 .button.up {
-    border: 1px solid red;
-    background-color: lightblue;
+    background-color: lightseagreen;
 }
 .button.down {
-    border: 1px solid blue;
     background-color: orange;
 }
 .student:first-child button.up {
@@ -67,4 +66,8 @@ span.student-name {
   background-color: black;
   color:red;
   cursor: not-allowed;
+}
+.button.save {
+    background-color: lightblue;
+
 }
