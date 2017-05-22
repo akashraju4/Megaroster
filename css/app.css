@@ -28,6 +28,7 @@ h2 span {
     border: 1px solid #ddd;
     padding: 0.75rem 1.25rem; 
     border-color: black;  
+    transition: 0.25s
 }
 .student + .student {
     border-top: none;
@@ -77,5 +78,13 @@ span.student-name {
 }
 .button.save {
     background-color: lightblue;
+}
+[contenteditable]:hover {
+  outline-color: -webkit-focus-ring-color;
+  outline-style: auto;
+  outline-width: 2px;
+}
 
+[contenteditable]:focus {
+  outline-width: 5px;
 }
