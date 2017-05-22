@@ -49,6 +49,13 @@ span.student-name {
     float: right;
     margin-bottom: 0;
 }
+.actions .button {
+    padding: 0.5em 0.69em 0.5em 0.64em;
+    font-size: 1.2rem;
+}
+.actions .button:hover {
+    transform: scale(1.1);
+}
 
 .promoted {
     background-color: yellow;
